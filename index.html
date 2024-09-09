@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Slideshow</title>
+    <style>
+        
+        #slideshow {
+            max-width: 100%;
+            max-height: 600px;
+            margin: auto;
+            position: relative;
+        }
+        img {
+            width: 100%;
+            
+            display: none; 
+        }
+        img.active {
+            display: block; 
+        }
+    </style>
+</head>
+<body>
+
+<div id="slideshow">
+    <img src="images/Poster 1.png" class="active" alt="Image 1">
+    <img src="images/Poster 2.png" alt="Image 2">
+    <img src="images/Poster 3.png" alt="Image 3">
+    <img src="images/Poster 4.png" alt="Image 4">
+    <img src="images/Poster 5.png" alt="Image 5">
+    <img src="images/Poster 6.png" alt="Image 6">
+    <img src="images/Poster 7.png" alt="Image 7">
+    <img src="images/Poster 8.png" alt="Image 8">
+    <img src="images/Poster 9.png" alt="Image 9">
+    <img src="images/Poster 10.png" alt="Image 10">
+    <img src="images/Poster 11.png" alt="Image 11">
+    <img src="images/Poster 12.png" alt="Image 12">
+    <img src="images/Poster 13.png" alt="Image 13">
+    <img src="images/Poster 14.png" alt="Image 14">
+    <!-- <img src="images/POSTER 15.png" alt="Image 15">
+    <img src="images/POSTER 16.png" alt="Image 16"> -->
+    
+</div>
+
+<script>
+    
+    function startSlideshow() {
+        const images = document.querySelectorAll('#slideshow img');
+        let currentIndex = 0;
+
+        
+        function showNextImage() {
+            // Hide the current image
+            images[currentIndex].classList.remove('active');
+            // Update index to the next image
+            currentIndex = (currentIndex + 1) % images.length; // Loop back to the first image
+            // Show the next image
+            images[currentIndex].classList.add('active');
+        }
+
+        // Start the slideshow with an interval of 8 seconds
+        setInterval(showNextImage, 8000);
+    }
+
+    // Start the slideshow when the page loads
+    window.onload = startSlideshow;
+</script>
+
+</body>
+</html>
